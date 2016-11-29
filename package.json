@@ -1,0 +1,24 @@
+{
+  "name": "django2ts",
+  "version": "1.0.0",
+  "description": "Convert Django models to TypeScript classes",
+  "main": "django2ts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GvS666/django2ts.git"
+  },
+  "keywords": [
+    "Django",
+    "TypeScript",
+    "Angular2"
+  ],
+  "author": "Tomasz Jama-Lipa <mail@tjl.rocks> (https://tjl.rocks)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GvS666/django2ts/issues"
+  },
+  "homepage": "https://github.com/GvS666/django2ts#readme"
+}
