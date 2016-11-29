@@ -8,6 +8,19 @@ const classRegex = /class\s*(\w+)\(models.Model/g;
 const fieldRegex = /\s*(\w+)\s*=\s*models\.(.*)Field/g;
 const notFound = 'not_found';
 
+const mapping = {
+    'AutoField': 'number',
+    'Boolean' : 'boolean',
+    'Char' : 'string',
+    'URL' : 'string',
+    'Text' : 'string',
+    'Decimal' : 'number',
+    'Integer' : 'number',
+    'OneToOne' : 'number',
+    'ManyToMany' : 'number[]',
+    'PositiveInteger' : 'number',
+};
+
 let models = {};
 
 let currentModel = notFound;
@@ -33,7 +46,11 @@ lineReader.on('close', () => {
     for (let model in models) {
         console.log('export class %s {', model);
         for (let field of models[model]) {
-            console.log('\t%s: %s;', field[0], field[1]);
+            if (field[1] in mapping) {
+                console.log('\t%s: %s;', field[0], mapping[field[1]]);
+            } else {
+                console.log('\t%s: %s;', field[0], field[1]);
+            }
         }
         console.log('}\n');
     }
